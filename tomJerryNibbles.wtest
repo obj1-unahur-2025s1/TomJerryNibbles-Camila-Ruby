@@ -2,6 +2,36 @@ import tomJerryNibbles.*
 
 describe "Test varios de Tom, Jerry, Nibbles y Remi" {
 
+  test "Al inicio, la velocidad máxima de Tom es 10 (su energía es 50)"{
+    assert.that(tom.energia() == 50 && tom.velocidadMaxima() == 10)
+  }
+
+  test "Testeamos la energia de Tom y otras variantes"{
+    //Al inicio, la velocidad máxima de Tom es 10 (su energía es 50)
+    assert.equals(tom.energia(), 50)
+    assert.equals(tom.velocidadMaxima(), 10)
+    //Si come a Jerry, la velocidad máxima pasa a ser 15.2 (su energía es 102)
+    tom.comer(jerry)
+    assert.that(tom.velocidadMaxima()== 15.2 && tom.energia() == 102)    
+    //Si corre 24 metros, entonces su velocidad máxima pasa a ser 14 (su energía es 90)
+    tom.correr(24)
+    assert.equals(tom.velocidadMaxima(), 14)
+    assert.equals(tom.energia(), 90)
+    //Si come a Nibbles, pasa a tener de velocidad máxima 18.7 (su energía es 137)
+    tom.comer(nibbles)
+    assert.equals(tom.velocidadMaxima(), 18.7)
+    assert.equals(tom.energia(), 137)
+    //si Jerry cumple años (3 años de edad), y luego Tom lo vuelve a comer, pasaría a tener 25.9 (su energia es 209)
+    jerry.cumplirAnios()
+    tom.comer(jerry)
+    assert.equals(tom.velocidadMaxima(), 25.9)
+    assert.equals(tom.energia(), 209)
+    //si corre 38 metros su velocidad pasa a ser 24 (su energia es 190)
+    tom.correr(38)
+    assert.equals(tom.velocidadMaxima(), 24)
+    assert.equals(tom.energia(), 190)
+  }
+
   test "cuando tom se come un raton lo recuerda" {
     tom.comer(remi)
     assert.that(tom.ratonesComidos().contains(remi))

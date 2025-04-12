@@ -2,15 +2,16 @@ object tom {
     const ratonesComidos = []
     var cuantoCorrio = 0
     var energia = 50
+    method energia() = energia 
     method ratonesComidos()= ratonesComidos
     method comer(unRaton){
         ratonesComidos.add(unRaton)
-        energia = 12 + unRaton.peso()
+        energia += 12 + unRaton.peso()
     }
     method cuantoCorrio() = cuantoCorrio
     method correr(distancia){
         cuantoCorrio += distancia
-        energia = distancia / 2
+        energia -= distancia / 2
     }
     method velocidadMaxima()= 5 + (energia/10)
     method puedeCazar(unaDistancia) =
