@@ -1,17 +1,30 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "Test varios de Tom, Jerry, Nibbles y Remi" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "cuando tom se come un raton lo recuerda" {
+    tom.comer(remi)
+    assert.that(tom.ratonesComidos().contains(remi))
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "Remi pesa inicialmente 15 pero come queso con fresas sube de peso" {
+    assert.that(remi.peso() == 15)
+    remi.comerQuesoConFresas()
+    assert.that(remi.peso() > 15)
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "Cuando jerry cumple años sube de peso e inicia con 40 de peso" {
+    assert.that(jerry.peso() == 40)
+    jerry.cumplirAnios()
+    assert.that(jerry.peso() > 40)
   }
 
+  test "tom recuerda cuanta distancia corrio al cazar un raton" {
+  tom.cazarRatonADistancia(remi, 10)
+  assert.that(tom.cuantoCorrio() == 10)
+  }
+
+  test "Nibbles simpre pesa 35"{
+    assert.that(nibbles.peso() == 35)
+  }
 }
